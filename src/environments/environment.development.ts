@@ -1,4 +1,0 @@
-export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:5207/api' // Replace with your actual local backend URL
-};
