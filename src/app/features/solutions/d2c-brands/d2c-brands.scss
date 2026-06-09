@@ -1,0 +1,17 @@
+.d2c-brands-page {
+  .red-line-title {
+    position: relative;
+    padding-bottom: 1rem;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background-color: var(--delhivery-red, #ea1d24);
+    }
+  }
+}
