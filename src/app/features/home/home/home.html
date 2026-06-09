@@ -1,0 +1,137 @@
+<section class="relative min-h-[600px] flex items-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img alt="Delhivery Logistics Center" class="w-full h-full object-cover" [src]="content.hero.backgroundImage">
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10 py-16">
+    <div class="grid md:grid-cols-12 gap-8 items-start">
+      <div class="md:col-span-7 text-white mt-12">
+        <h1 class="text-[40px] md:text-[52px] font-extrabold leading-[1.1] mb-8">
+          We are India's largest fully integrated <br>
+          <span class="text-delhivery-red">logistics services</span> provider
+        </h1>
+
+        <div class="flex flex-wrap items-center gap-3 text-[14px] font-bold">
+          @for (service of content.hero.services; track service; let last = $last) {
+            <span>{{ service }}</span>
+            @if (!last) {
+              <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+            }
+          }
+        </div>
+
+        <div class="mt-16 bg-delhivery-red w-14 h-14"></div>
+      </div>
+
+      <div class="md:col-span-5 md:ml-auto w-full max-w-[460px]">
+        <app-ship-personal-courier-card id="track-ship-card" [activeTab]="'track'" class="block w-full h-full shadow-2xl rounded-sm"></app-ship-personal-courier-card>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="mb-16">
+      <p class="text-[18px] text-gray-600 mb-1">Flexibility, Reliability and Scale</p>
+      <h2 class="text-[26px] font-extrabold text-black">The Answer is Delhivery</h2>
+      <div class="w-16 h-1 bg-delhivery-red mt-4"></div>
+    </div>
+
+    <div class="relative">
+      <div class="absolute top-1/2 left-0 w-full h-[1px] bg-gray-200 -z-10 hidden md:block"></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
+        @for (stat of content.stats; track stat.value) {
+          <div class="bg-white p-8 border border-gray-100 shadow-sm relative group">
+            @if (stat.highlighted) {
+              <div class="absolute -top-[5px] left-0 right-0 h-[5px] bg-delhivery-red"></div>
+            } @else {
+              <div class="absolute -top-[5px] left-0 right-0 h-[5px] bg-delhivery-red scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            }
+
+            <img class="h-10 w-10 mb-6" [alt]="stat.iconAlt" [src]="stat.icon">
+            <div class="text-[28px] font-black text-black leading-tight mb-1">{{ stat.value }}</div>
+            <p class="text-[11px] text-gray-500 font-medium">{{ stat.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-[#0F0F0F] text-white">
+  <div class="container mx-auto px-4">
+    <div class="mb-20">
+      <h2 class="text-[32px] font-bold">
+        Delhivery's <span class="font-normal text-gray-500">suite of solutions for</span>
+      </h2>
+      <div class="w-16 h-1 bg-delhivery-red mt-4"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-16">
+      @for (solution of content.solutions; track solution.title) {
+        <div class="group">
+          <img class="h-12 mb-8" [alt]="solution.iconAlt" [src]="solution.icon">
+          <h3 class="text-[22px] font-bold mb-4">{{ solution.title }}</h3>
+          <p class="text-[14px] text-gray-400 leading-relaxed mb-6">{{ solution.description }}</p>
+          <button class="text-delhivery-red text-[13px] font-bold inline-flex items-center group-hover:underline" routerLink="/auth">
+            Know More <span class="ml-2 text-lg">&rarr;</span>
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-[#F8F9FA]">
+  <div class="container mx-auto px-4">
+    <div class="mb-20">
+      <h2 class="text-[32px] font-bold leading-tight">
+        Services <span class="font-normal text-gray-500">that power <br> our solutions <br> ecosystem</span>
+      </h2>
+      <div class="w-16 h-1 bg-delhivery-red mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      @for (service of content.serviceCards; track service.label) {
+        <div class="bg-white group overflow-hidden">
+          <div class="relative h-48">
+            <img
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+              [alt]="service.imageAlt"
+              [src]="service.image"
+            >
+            <div class="absolute bottom-0 left-0 bg-black text-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider">
+              {{ service.label }}
+            </div>
+          </div>
+
+          <div class="p-8">
+            <p class="text-[13px] text-gray-500 leading-relaxed mb-8 h-20 overflow-hidden">{{ service.description }}</p>
+            <button class="text-[12px] font-bold flex items-center group-hover:text-delhivery-red" routerLink="/auth">
+              Know More <span class="ml-2">&rarr;</span>
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-[#0A0A0A] text-white text-center">
+  <div class="container mx-auto px-4">
+    <h2 class="text-[28px] md:text-[36px] font-light mb-4">
+      Experience the <span class="font-bold">operating system</span> for commerce in India
+    </h2>
+    <p class="text-gray-500 text-[16px] mb-12">Sign up now to start shipping with Delhivery</p>
+    <div class="flex flex-col md:flex-row justify-center gap-4">
+      <button class="bg-white text-black px-12 py-4 font-bold text-[14px] flex items-center justify-center group" routerLink="/auth">
+        Personal Courier <span class="ml-3 transition-transform group-hover:translate-x-1">&rarr;</span>
+      </button>
+      <button class="bg-white text-black px-12 py-4 font-bold text-[14px] flex items-center justify-center group" routerLink="/auth">
+        Business Shipments <span class="ml-3 transition-transform group-hover:translate-x-1">&rarr;</span>
+      </button>
+    </div>
+  </div>
+</section>
