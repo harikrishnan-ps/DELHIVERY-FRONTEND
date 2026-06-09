@@ -1,0 +1,193 @@
+<div class="package-details-container">
+  
+  <!-- Left Side: Order Summary -->
+  <div class="left-panel">
+    <div class="order-summary-card">
+      <h2 class="card-title">Order Summary</h2>
+      
+      <div class="section-title text-uppercase text-xs font-bold text-gray mb-3 tracking-wide">ADDRESS DETAILS</div>
+      
+      <div class="address-timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon pickup"></div>
+          <div class="timeline-content">
+            <div class="flex-between">
+              <h4>HARIKRISHNAN P S (Pickup)</h4>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <p>Kerala - 682317</p>
+          </div>
+        </div>
+        
+        <div class="timeline-line"></div>
+        
+        <div class="timeline-item">
+          <div class="timeline-icon delivery"></div>
+          <div class="timeline-content">
+            <div class="flex-between">
+              <h4>HARIKRISHNAN P S (Delivery)</h4>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <p>Kerala - 682316</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Promotion Banner -->
+    <div class="promo-banner mt-4">
+      <div class="promo-content">
+        <h4>Travel light!</h4>
+        <h2>Save up to 70% on<br>excess baggage fees</h2>
+        <div class="coupon">
+          <span class="badge">25% OFF</span>
+          <span class="code">Use code <strong>HEAVY25</strong></span>
+        </div>
+        <button class="book-now-btn">BOOK NOW</button>
+      </div>
+      <div class="ship-upto">
+        Ship Upto<br><strong>50 Kg</strong>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Right Side: Package Form -->
+  <div class="right-panel">
+    <div class="card">
+      <div class="card-header">
+        <button class="back-btn" (click)="goBack()">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        </button>
+        <h2>Package Details</h2>
+      </div>
+      
+      <div class="card-body">
+        
+        <!-- Select Packaging Accordion -->
+        <div class="accordion-item" [class.open]="!selectedPackaging || selectedPackaging">
+          <div class="accordion-header flex-between">
+            <h3>Select Packaging</h3>
+            <div class="selected-value" *ngIf="selectedPackaging">
+              <span class="text-sm font-semibold mr-2">{{ selectedPackaging | titlecase }}</span>
+              <button class="edit-link text-blue font-semibold text-xs">EDIT</button>
+            </div>
+          </div>
+          
+          <div class="accordion-body">
+            <div class="packaging-options">
+              <button *ngFor="let option of packagingOptions" 
+                      class="option-card" 
+                      [class.active]="selectedPackaging === option.id"
+                      (click)="selectPackaging(option.id)">
+                <div class="icon-container">
+                  <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path [attr.d]="option.icon" />
+                  </svg>
+                </div>
+                <div class="option-name">{{ option.name }}</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Choose Parcel Weight Accordion -->
+        <div class="accordion-item mt-4" [class.disabled]="!selectedPackaging">
+          <div class="accordion-header flex-between">
+            <h3>Choose Parcel Weight</h3>
+            <div class="selected-value" *ngIf="selectedWeight">
+              <div class="flex items-center">
+                <span class="weight-badge mr-2">{{ selectedWeight | uppercase }}</span>
+                <span class="text-sm font-semibold mr-2">UPTO 0.5 KG</span>
+                <button class="edit-link text-blue font-semibold text-xs">EDIT</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-body" *ngIf="selectedPackaging">
+            <div class="weight-options">
+              <button *ngFor="let w of weightOptions" 
+                      class="weight-card" 
+                      [class.active]="selectedWeight === w.id"
+                      (click)="selectWeight(w.id)">
+                <span class="weight-badge">{{ w.size }}</span>
+                <span class="weight-range">{{ w.range }}</span>
+              </button>
+            </div>
+            <div class="text-right mt-4" *ngIf="!selectedContent">
+               <button class="btn-dark" (click)="selectContent('books')">Next</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Choose Package Content Accordion -->
+        <div class="accordion-item mt-4" [class.disabled]="!selectedWeight">
+          <div class="accordion-header flex-between">
+            <h3>Choose Package Content</h3>
+            <div class="selected-value" *ngIf="selectedContent">
+              <span class="text-sm font-semibold mr-2">Books & Documents</span>
+              <button class="edit-link text-blue font-semibold text-xs">EDIT</button>
+            </div>
+          </div>
+          
+          <div class="accordion-body" *ngIf="selectedWeight">
+            <div class="content-options-wrapper">
+              <div class="content-options">
+                <button *ngFor="let c of contentOptions" 
+                        class="content-card" 
+                        [class.active]="selectedContent === c.id"
+                        (click)="selectContent(c.id)">
+                  <div class="icon-container mb-2">
+                    <svg *ngIf="c.id === 'books'" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    <svg *ngIf="c.id === 'electronics'" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    <svg *ngIf="c.id === 'others'" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                  </div>
+                  <div class="option-name">{{ c.name }}</div>
+                </button>
+              </div>
+            </div>
+            <div class="text-right mt-4">
+               <button class="btn-dark" (click)="goToNextStep()">Next</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delhivery Protect Accordion -->
+        <div class="accordion-item mt-4" [class.disabled]="!selectedContent">
+          <div class="accordion-header">
+            <h3>Delhivery Protect <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#facc15" stroke-width="2" style="display:inline-block; vertical-align:middle;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></h3>
+          </div>
+          
+          <div class="accordion-body" *ngIf="selectedContent">
+            <div class="form-group">
+              <label>Package Value</label>
+              <div class="input-with-prefix">
+                <span class="prefix">₹</span>
+                <input type="number" [(ngModel)]="packageValue" class="form-control" />
+              </div>
+            </div>
+            
+            <div class="protect-card">
+              <div class="protect-info">
+                <input type="checkbox" id="securePackage" [(ngModel)]="securePackage" class="checkbox-custom" />
+                <div>
+                  <h4 class="font-bold text-sm m-0">Secure your package for just ₹100</h4>
+                  <p class="text-xs text-gray m-0 mt-1">Claim upto ₹500 in case of loss or damage</p>
+                  <a href="#" class="text-blue text-xs mt-2 inline-block font-semibold">See what is covered</a>
+                </div>
+              </div>
+              <div class="shield-icon">
+                <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#334155" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><text x="12" y="16" font-size="12" text-anchor="middle" fill="#334155" font-weight="bold">D</text></svg>
+              </div>
+            </div>
+            
+            <p class="text-xs text-gray mt-4">
+              The maximum liability value for lost/damaged shipments will be as per <a href="#" class="text-blue">Delhivery Terms and Conditions</a>
+            </p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+</div>
