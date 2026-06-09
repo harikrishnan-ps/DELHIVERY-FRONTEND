@@ -1,0 +1,26 @@
+<div class="account-container">
+  
+  <div class="header-section">
+    <a routerLink="../" class="back-btn">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+    <h2 class="title">Account Settings</h2>
+  </div>
+
+  <div class="profile-section">
+    <div class="avatar-bg">
+      <div class="avatar">HS</div>
+    </div>
+    
+    <div class="user-info">
+      <h3 class="user-name">{{ name }}</h3>
+      <p class="user-phone">{{ phone }}</p>
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <button class="btn-delete" (click)="deleteAccount()">Delete Account</button>
+    <button class="btn-logout" (click)="logout()">Logout</button>
+  </div>
+
+</div>
