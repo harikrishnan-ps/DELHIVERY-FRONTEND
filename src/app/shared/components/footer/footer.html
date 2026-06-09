@@ -1,0 +1,55 @@
+<footer class="bg-white pt-24 pb-12 border-t border-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="mb-20">
+      <img alt="Delhivery Logo" class="h-8 mb-6" [src]="content.footerLogo">
+
+      <div class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.1em] space-y-1">
+        @for (certification of content.certifications; track certification) {
+          <p>{{ certification }}</p>
+        }
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-x-8 gap-y-12 mb-24">
+      @for (group of content.footerGroups; track group.title) {
+        <div>
+          <h4 class="font-bold text-[12px] text-black uppercase mb-8">{{ group.title }}</h4>
+          <ul class="space-y-4 text-[12px] text-gray-600">
+            @for (link of group.links; track link.label) {
+              <li>
+                <a class="hover:text-delhivery-red" [href]="link.href">{{ link.label }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+
+    <div class="border-t border-gray-100 pt-12 flex flex-col md:flex-row justify-between items-start">
+      <div class="max-w-3xl">
+        <h5 class="text-[12px] font-bold mb-3">Information Security Policy</h5>
+        <p class="text-[11px] text-gray-500 leading-relaxed mb-4">
+          Delhivery is committed to safeguarding the confidentiality, integrity and availability of all physical and
+          electronic information assets of the organization. We ensure that the regulatory, operational and contractual
+          requirements are fulfilled.
+        </p>
+
+        <div class="mt-8">
+          <h5 class="text-[12px] font-bold mb-1">Disclaimer</h5>
+          <p class="text-[10px] text-gray-400">Operational metrics listed are as of September, 2023</p>
+        </div>
+      </div>
+
+      <div class="flex space-x-3 mt-8 md:mt-0">
+        @for (social of content.socialLinks; track social.label) {
+          <a
+            class="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white text-[10px] font-bold"
+            [href]="social.href"
+          >
+            {{ social.label }}
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+</footer>

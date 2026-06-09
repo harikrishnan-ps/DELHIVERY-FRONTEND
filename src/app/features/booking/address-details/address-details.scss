@@ -1,0 +1,511 @@
+.address-details-container {
+  display: flex;
+  gap: 24px;
+}
+
+/* Left Panel Styles */
+.left-panel {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.info-card {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.info-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.info-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-icon {
+  background-color: #f8f9fa;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-text h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 4px 0;
+}
+
+.info-text p {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Promo Banner */
+.promo-banner {
+  background: linear-gradient(135deg, #4f2222, #b91c1c);
+  border-radius: 8px;
+  padding: 24px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  min-height: 200px;
+  /* Add an image via before pseudo element if desired */
+}
+
+.promo-banner::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.promo-content {
+  position: relative;
+  z-index: 1;
+}
+
+.promo-content h4 {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+}
+
+.promo-content h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.coupon {
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.coupon .badge {
+  background: #facc15;
+  color: #000;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+.coupon .code {
+  color: #000;
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+.book-now-btn {
+  background: white;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ship-upto {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #ef4444;
+  padding: 12px 16px;
+  border-top-left-radius: 8px;
+  text-align: center;
+  font-size: 10px;
+  z-index: 1;
+}
+
+.ship-upto strong {
+  font-size: 16px;
+}
+
+
+/* Right Panel Styles */
+.right-panel {
+  flex-grow: 1;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 16px;
+  display: flex;
+  color: #334155;
+}
+
+.card-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #1e293b;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.address-section {
+  margin-bottom: 32px;
+}
+
+.address-section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.add-address-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-address-btn:hover {
+  background-color: #f8f9fa;
+}
+
+.saved-address-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.address-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  background: #f1f5f9;
+  color: #3b82f6;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.edit-icon, .remove-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-text {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 16px;
+  padding-left: 32px;
+  line-height: 1.5;
+}
+
+.address-footer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-left: 32px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.tag, .phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-footer {
+  padding: 20px 24px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.next-btn {
+  background: #334155;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 32px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.next-btn.active {
+  background: #0f172a;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modal-header {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-header.border-bottom {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.modal-header.flex-between {
+  justify-content: space-between;
+}
+
+.modal-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #64748b;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-body.scrollable {
+  overflow-y: auto;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.bg-light {
+  background-color: #f1f5f9;
+  color: #64748b;
+}
+
+.bg-light-yellow {
+  background-color: #fefce8;
+  border-color: #fef08a;
+}
+
+.consent-group {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+.consent-group input[type="checkbox"] {
+  margin-top: 4px;
+  accent-color: #ef4444;
+}
+
+.consent-group label {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.text-red {
+  color: #ef4444;
+}
+
+.btn-dark {
+  background: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mt-4 {
+  margin-top: 24px;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 24px 0 16px 0;
+  letter-spacing: 0.5px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+}
+
+.col-6 {
+  flex: 1;
+}
+
+.save-as-group {
+  display: flex;
+  gap: 12px;
+}
+
+.save-as-btn {
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+}
+
+.save-as-btn.active {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  font-weight: 600;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.error-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.border-red {
+  border-color: #ef4444;
+}

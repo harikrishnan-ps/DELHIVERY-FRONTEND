@@ -1,0 +1,395 @@
+.schedule-pickup-container {
+  display: flex;
+  gap: 24px;
+}
+
+/* Left Panel Styles */
+.left-panel {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.order-summary-card {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.section-container {
+  margin-bottom: 16px;
+}
+
+.text-uppercase { text-transform: uppercase; }
+.text-xs { font-size: 11px; }
+.font-bold { font-weight: 700; }
+.text-gray { color: #64748b; }
+.tracking-wide { letter-spacing: 0.5px; }
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: #f1f5f9;
+  margin: 16px 0;
+}
+
+/* Address Timeline */
+.address-timeline {
+  position: relative;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.timeline-icon.pickup {
+  border-color: #10b981;
+}
+
+.timeline-icon.delivery {
+  border-color: #ef4444;
+}
+
+.timeline-content {
+  flex-grow: 1;
+  padding-bottom: 24px;
+}
+
+.timeline-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 16px;
+  bottom: 30px;
+  left: 7px;
+  width: 2px;
+  background-color: #e2e8f0;
+  z-index: 1;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cursor-pointer { cursor: pointer; }
+
+/* Package Summary */
+.package-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.package-icon {
+  width: 40px;
+  height: 40px;
+  background: #fefce8;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.package-info {
+  flex-grow: 1;
+}
+
+.package-info h4 {
+  margin: 0 0 2px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.package-info p {
+  margin: 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.package-weight {
+  font-size: 11px;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.package-weight .badge {
+  background: #f1f5f9;
+  color: #ef4444;
+  padding: 2px 4px;
+  border-radius: 2px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Promo Banner (Reused) */
+.promo-banner {
+  background: linear-gradient(135deg, #4f2222, #b91c1c);
+  border-radius: 8px;
+  padding: 24px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  min-height: 200px;
+}
+
+.mt-3 { margin-top: 12px; }
+.mt-4 { margin-top: 16px; }
+.mt-6 { margin-top: 24px; }
+.mb-4 { margin-bottom: 16px; }
+
+.promo-banner::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.promo-content {
+  position: relative;
+  z-index: 1;
+}
+
+.promo-content h4 {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+}
+
+.promo-content h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.coupon {
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.coupon .badge {
+  background: #facc15;
+  color: #000;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+.coupon .code {
+  color: #000;
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+.book-now-btn {
+  background: white;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ship-upto {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #ef4444;
+  padding: 12px 16px;
+  border-top-left-radius: 8px;
+  text-align: center;
+  font-size: 10px;
+  z-index: 1;
+}
+
+.ship-upto strong {
+  font-size: 16px;
+}
+
+
+/* Right Panel Styles */
+.right-panel {
+  flex-grow: 1;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 16px;
+  display: flex;
+  color: #334155;
+}
+
+.card-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #1e293b;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+/* Dates */
+.dates-container {
+  display: flex;
+  gap: 16px;
+}
+
+.date-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.date-card:hover {
+  border-color: #cbd5e1;
+  background-color: #f8f9fa;
+}
+
+.date-card.active {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.date-card .day {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.date-card .date {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 2px 0;
+}
+
+.date-card .month {
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* Alert */
+.alert {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.alert-icon {
+  color: #475569;
+  margin-top: 2px;
+}
+
+.alert-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.alert-content p {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Buttons */
+.btn-dark {
+  background: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 32px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-dark:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.text-right {
+  text-align: right;
+}

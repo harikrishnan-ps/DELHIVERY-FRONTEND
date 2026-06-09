@@ -1,0 +1,169 @@
+<section class="relative h-[500px] flex items-center bg-gray-900">
+  <div class="absolute inset-0 z-0">
+    <img alt="Warehouse Background" class="w-full h-full object-cover opacity-60" [src]="content.hero.image">
+  </div>
+  <div class="container mx-auto px-6 lg:px-12 relative z-10">
+    <div class="max-w-2xl text-white">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow">
+        <span class="text-delhivery-red">Stock closer</span> to your customers
+      </h1>
+      <p class="text-lg md:text-xl mb-8 text-shadow">
+        Our distributed pan-India warehousing network helps you manage your inventory better
+      </p>
+      <button class="inline-flex items-center bg-white text-delhivery-dark font-semibold py-3 px-6 rounded-sm hover:bg-gray-100 transition-colors" routerLink="/auth">
+        Get started
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      <div class="lg:w-1/2 pr-0 lg:pr-12">
+        <h2 class="text-3xl font-bold mb-6 text-delhivery-dark red-line-title">
+          End-to-end warehousing <span class="font-normal text-text-gray">and<br>distribution logistics</span>
+        </h2>
+        <p class="text-text-gray mb-6 leading-relaxed">
+          Delhivery's network of fulfilment centres (warehouses) are powered by our proprietary software and optimally
+          integrated with our shipping network giving you the flexibility to optimise your storage cost versus speed to
+          delivery.
+        </p>
+        <p class="text-text-gray mb-8 leading-relaxed">
+          As a result you are now free to focus on growing your business without having to worry about varying storage
+          and manpower needs - while delivering the experience you always wanted to, for your consumers.
+        </p>
+        <button class="inline-flex items-center bg-delhivery-dark text-white font-semibold py-3 px-6 rounded-sm hover:bg-gray-800 transition-colors" routerLink="/auth">
+          Contact Us
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="lg:w-1/2 relative mt-10 lg:mt-0">
+        <div class="relative">
+          <img alt="Warehouse Interior" class="w-full h-auto object-cover shadow-lg relative z-0" [src]="content.overview.image">
+          <div class="red-square-decor-right"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-delhivery-dark text-white">
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="flex flex-col lg:flex-row gap-12">
+      <div class="lg:w-1/4">
+        <h2 class="text-3xl font-bold red-line-title">The Delhivery<br>Advantage</h2>
+      </div>
+      <div class="lg:w-3/4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+          @for (advantage of content.advantages; track advantage.title) {
+            <div>
+              <div class="mb-4">
+                <img class="h-12 w-12" [alt]="advantage.imageAlt" [src]="advantage.image">
+              </div>
+              <h3 class="text-lg font-bold mb-2">{{ advantage.title }}</h3>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-delhivery-gray">
+  <div class="container mx-auto px-6 lg:px-12">
+    <h2 class="text-3xl font-bold mb-12 text-center lg:text-left text-delhivery-dark red-line-title inline-block">
+      How our <span class="font-normal text-text-gray">seamless order fulfilment</span> works
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      @for (step of content.fulfilmentSteps; track step.title) {
+        <div class="bg-white p-6 shadow-sm">
+          <img class="w-full h-auto mb-6" [alt]="step.imageAlt" [src]="step.image">
+          <h3 class="text-lg font-bold mb-3 text-delhivery-dark">{{ step.title }}</h3>
+          <p class="text-sm text-text-gray leading-relaxed">{{ step.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6 lg:px-12">
+    <h2 class="text-3xl font-bold mb-12 text-delhivery-dark red-line-title">Case Studies</h2>
+    <div class="flex flex-col lg:flex-row items-center gap-12 bg-delhivery-dark text-white relative">
+      <div class="absolute left-0 top-0 w-1/3 h-full bg-white z-0"></div>
+      <div class="lg:w-1/2 p-10 lg:p-16 relative z-10 bg-white text-delhivery-dark">
+        <h3 class="text-2xl md:text-3xl font-bold mb-6">
+          A leading D2C beauty brand in India scales order volume by 4000%
+        </h3>
+        <p class="text-text-gray mb-8 leading-relaxed">
+          For over four years now, one of India's largest beauty brands has been using Delhivery's technology-driven
+          Warehouse Management System (WMS) platform to gain real-time visibility of warehouse operations and shipping
+          orders out on the day they are placed. By leveraging Delhivery's vast network and reach across 18,700+ pin
+          codes, the company has scaled their order volume by 4,000% in four years.
+        </p>
+        <div class="flex space-x-4">
+          <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-text-gray hover:bg-gray-100 transition-colors" type="button">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+          <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-text-gray hover:bg-gray-100 transition-colors" type="button">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="lg:w-1/2 relative p-10 lg:p-0 z-10">
+        <img alt="Beauty Products Case Study" class="w-full h-auto object-cover shadow-lg" [src]="content.caseStudy.image">
+        <div class="red-square-decor-right"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-delhivery-dark text-white text-center">
+  <div class="container mx-auto px-6 lg:px-12">
+    <h2 class="text-2xl md:text-3xl font-medium mb-4">
+      Need a flexible, <span class="font-bold">end-to-end warehousing solution?</span>
+    </h2>
+    <p class="text-gray-300 mb-8">Get started with Delhivery's Fulfillment service</p>
+    <button class="inline-flex items-center bg-white text-delhivery-dark font-semibold py-3 px-8 rounded-sm hover:bg-gray-100 transition-colors" routerLink="/auth">
+      Contact us
+      <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<section class="py-20 bg-delhivery-gray">
+  <div class="container mx-auto px-6 lg:px-12">
+    <h2 class="text-3xl font-normal mb-12 text-delhivery-dark red-line-title">
+      Explore other <span class="font-bold">Services</span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      @for (service of content.relatedServices; track service.title) {
+        <div class="bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow relative">
+          @if (service.accent === 'left') {
+            <div class="red-square-decor"></div>
+          }
+          <img class="w-full h-48 object-cover" [alt]="service.imageAlt" [src]="service.image">
+          @if (service.accent === 'right') {
+            <div class="red-square-decor-right"></div>
+          }
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-delhivery-dark">{{ service.title }}</h3>
+            <p class="text-sm text-text-gray leading-relaxed mb-4">{{ service.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

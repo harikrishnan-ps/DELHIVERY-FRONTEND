@@ -1,0 +1,39 @@
+<div class="help-container">
+  
+  <div class="header-section">
+    <h2 class="title">Help</h2>
+    <button class="contact-btn">Contact Us</button>
+  </div>
+
+  <div class="faq-container">
+    <h3 class="faq-title">
+      <span class="icon">❓</span> FAQs
+    </h3>
+
+    <div class="accordion">
+      
+      <div class="accordion-section" *ngFor="let section of faqSections">
+        
+        <button class="accordion-header" (click)="toggleSection(section)">
+          <span class="section-title">{{ section.title }}</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" [class.expanded]="section.expanded">
+            <polyline points="6 9 12 15 18 9" *ngIf="!section.expanded"></polyline>
+            <polyline points="18 15 12 9 6 15" *ngIf="section.expanded"></polyline>
+          </svg>
+        </button>
+
+        <div class="accordion-content" *ngIf="section.expanded && section.items.length > 0">
+          <ul class="faq-list">
+            <li class="faq-item" *ngFor="let item of section.items">
+              <span>{{ item }}</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
