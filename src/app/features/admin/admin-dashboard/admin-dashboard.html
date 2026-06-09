@@ -1,0 +1,68 @@
+<div>
+  <header class="mb-10">
+    <h2 class="text-3xl font-extrabold text-gray-900">Dashboard Overview</h2>
+    <p class="text-gray-500 mt-1">Welcome back, Admin! Here is what's happening today.</p>
+  </header>
+
+  <!-- Stats Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+    <div *ngFor="let stat of stats" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow relative overflow-hidden group">
+      <div class="absolute -right-4 -top-4 w-24 h-24 bg-gray-50 rounded-full group-hover:bg-red-50 transition-colors z-0"></div>
+      <div class="relative z-10 flex justify-between items-start">
+        <div>
+          <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">{{ stat.title }}</p>
+          <h3 class="text-3xl font-bold text-gray-900 mt-2">{{ stat.value }}</h3>
+        </div>
+        <div class="text-2xl bg-gray-100 w-12 h-12 flex items-center justify-center rounded-lg shadow-inner">{{ stat.icon }}</div>
+      </div>
+      <div class="relative z-10 mt-4 flex items-center">
+        <span [class]="stat.positive ? 'text-green-600' : 'text-red-600'" class="font-bold text-sm flex items-center gap-1">
+          {{ stat.trend }}
+        </span>
+        <span class="text-gray-400 text-sm ml-2">vs last month</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Shipments Table -->
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+      <h3 class="text-xl font-bold text-gray-800">Recent Shipments</h3>
+      <a routerLink="/admin/shipments" class="text-red-600 hover:text-red-800 font-semibold text-sm transition-colors cursor-pointer">View All &rarr;</a>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-gray-50 text-gray-600 text-xs uppercase tracking-wider border-b border-gray-200">
+            <th class="p-4 font-semibold">Tracking ID</th>
+            <th class="p-4 font-semibold">Customer</th>
+            <th class="p-4 font-semibold">Destination</th>
+            <th class="p-4 font-semibold">Date</th>
+            <th class="p-4 font-semibold">Amount</th>
+            <th class="p-4 font-semibold">Status</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm divide-y divide-gray-100">
+          <tr *ngFor="let shipment of recentShipments" class="hover:bg-gray-50 transition-colors">
+            <td class="p-4 font-medium text-gray-900">{{ shipment.id }}</td>
+            <td class="p-4 text-gray-700">{{ shipment.customer }}</td>
+            <td class="p-4 text-gray-500">{{ shipment.destination }}</td>
+            <td class="p-4 text-gray-500">{{ shipment.date }}</td>
+            <td class="p-4 font-medium text-gray-900">{{ shipment.amount }}</td>
+            <td class="p-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold"
+                [ngClass]="{
+                  'bg-green-100 text-green-800': shipment.status === 'Delivered',
+                  'bg-blue-100 text-blue-800': shipment.status === 'In Transit',
+                  'bg-yellow-100 text-yellow-800': shipment.status === 'Pending',
+                  'bg-red-100 text-red-800': shipment.status === 'Cancelled'
+                }">
+                {{ shipment.status }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
