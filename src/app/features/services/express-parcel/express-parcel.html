@@ -1,0 +1,185 @@
+<section
+  class="relative h-[600px] bg-cover bg-center"
+  [style.background-image]="'url(' + content.hero.image + ')'"
+>
+  <div class="absolute inset-0 bg-black/20"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
+    <div class="max-w-2xl text-white">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+        India's <span class="text-brand-red">eCommerce</span> runs on<br>Delhivery's logistics
+      </h1>
+      <p class="text-lg mb-8 font-light max-w-lg">
+        Trusted partner for small businesses, large marketplaces and anyone else looking to send parcels across the
+        country efficiently
+      </p>
+      <button routerLink="/auth" class="bg-white text-brand-dark px-8 py-3 rounded font-bold flex items-center gap-3 hover:bg-gray-100 transition-colors cursor-pointer w-fit">
+        Sign Up as a Business <span class="text-xl">&rarr;</span>
+      </button>
+    </div>
+    <div class="absolute bottom-10 left-8 w-12 h-12 bg-brand-red"></div>
+  </div>
+</section>
+
+<section class="py-24 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center gap-16">
+      <div class="flex-1">
+        <h2 class="text-3xl font-extrabold mb-6">
+          We are India's largest<br>
+          <span class="text-brand-red">Express Parcel player</span>
+        </h2>
+        <div class="w-16 h-1 bg-brand-red mb-8"></div>
+        <div class="space-y-4 text-gray-custom leading-relaxed">
+          <p>
+            Delhivery's infrastructure and technology power our Express parcel service that caters to eCommerce
+            marketplaces, D2C brands, omnichannel retailers, small and medium enterprises, large enterprises and
+            consumers.
+          </p>
+          <p>
+            With industry leading TATs and service level adherence, we ensure that your shipments reach more than 99.5%
+            of India's population reliably and effectively.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex-1 relative">
+        <img alt="Delivery in extreme conditions" class="rounded-sm shadow-xl relative z-10" [src]="content.largestPlayer.image">
+        <div class="absolute -top-10 -right-10 w-full h-full bg-gray-100 -z-0"></div>
+        <div class="absolute top-10 -right-4 w-10 h-10 bg-brand-red z-20"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-brand-dark text-white py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold mb-16 text-center md:text-left max-w-3xl">
+      <span class="text-gray-300">Delhivery's data science capabilities</span>
+      powers a mesh network that determine the most optimal path for your shipments
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      @for (stat of content.stats; track stat.title) {
+        <div class="flex flex-col items-start">
+          <div class="mb-6">
+            <img [alt]="stat.iconAlt" [src]="stat.icon">
+          </div>
+          <div class="text-4xl font-extrabold mb-2">{{ stat.title }}</div>
+          <div class="text-gray-400 text-sm">{{ stat.description }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-extrabold mb-16">
+      Drive efficiency <span class="font-normal text-gray-500">with scale to reach the</span><br>
+      remotest corners of India
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      @for (feature of content.efficiencyFeatures; track feature.title) {
+        <div class="space-y-4">
+          <img class="h-12" [alt]="feature.iconAlt" [src]="feature.icon">
+          <h3 class="font-bold text-lg">{{ feature.title }}</h3>
+          <p class="text-sm text-gray-custom leading-snug">{{ feature.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="bg-brand-dark text-white py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row gap-20">
+      <div class="lg:w-1/4">
+        <h2 class="text-3xl font-extrabold mb-4">Segments</h2>
+        <p class="text-2xl font-light text-gray-400">we serve</p>
+        <div class="w-16 h-1 bg-brand-red mt-4"></div>
+      </div>
+      <div class="lg:w-3/4 grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8">
+        @for (segment of content.segments; track segment.title) {
+          <div class="flex items-center gap-6">
+            <img class="h-12" [alt]="segment.iconAlt" [src]="segment.icon">
+            <span class="text-xl font-bold">{{ segment.title }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold mb-16 max-w-2xl">
+      Grow your brand through our<br>
+      <span class="text-brand-red border-b-4 border-brand-red pb-1">technology driven</span> logistics platform
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      @for (feature of content.platformFeatures; track feature.title) {
+        <div class="space-y-4">
+          <img class="h-10" [alt]="feature.iconAlt" [src]="feature.icon">
+          <h3 class="font-bold">{{ feature.title }}</h3>
+          <p class="text-sm text-gray-custom leading-snug">{{ feature.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-gray-50 border-t border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold mb-1">What our</h2>
+      <h2 class="text-2xl font-bold text-brand-red border-b-4 border-brand-red w-fit pb-1">customers say</h2>
+    </div>
+    <div class="text-brand-red text-4xl mb-8">&ldquo;</div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+      @for (testimonial of content.testimonials; track testimonial.title) {
+        <div class="space-y-6">
+          <img class="h-8 grayscale" [alt]="testimonial.iconAlt" [src]="testimonial.icon">
+          <p class="text-sm text-gray-custom leading-relaxed">{{ testimonial.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="bg-brand-dark py-16 text-center">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-2xl text-white font-bold mb-8">
+      Get started with <span class="text-white">Delhivery's Express Parcel Services</span><br>
+      for your Business Today
+    </h2>
+    <button routerLink="/auth" class="bg-white text-brand-dark px-10 py-3 rounded-sm font-bold inline-flex items-center gap-3 cursor-pointer mt-4">
+      Sign Up Now <span class="text-xl">&rarr;</span>
+    </button>
+  </div>
+</section>
+
+<section class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold mb-12">
+      Explore other <span class="text-brand-red border-b-4 border-brand-red pb-1">Services</span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      @for (service of content.relatedServices; track service.title) {
+        <div class="bg-white rounded overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div class="relative">
+            <img class="w-full h-48 object-cover" [alt]="service.imageAlt" [src]="service.image">
+            @if (service.accent === 'left') {
+              <div class="absolute bottom-4 left-0 w-8 h-8 bg-brand-red"></div>
+            }
+            @if (service.accent === 'right') {
+              <div class="absolute bottom-4 right-0 w-8 h-8 bg-brand-red"></div>
+            }
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">{{ service.title }}</h3>
+            <p class="text-sm text-gray-custom mb-4">{{ service.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
