@@ -1,0 +1,300 @@
+<div class="address-details-container">
+  
+  <!-- Left Side: Things to keep in mind -->
+  <div class="left-panel">
+    <div class="info-card">
+      <h2 class="info-title">Things to keep in mind</h2>
+      
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#10b981" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <div class="info-text">
+          <h3>Package Weight</h3>
+          <p>We only deliver packages upto 50kgs</p>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="info-text">
+          <h3>Packaging</h3>
+          <p>We do not provide packaging service. Please keep the items packed for our Delivery executive to pickup</p>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ef4444" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="info-text">
+          <h3>Restricted/Illegal item</h3>
+          <p>Please ensure you are not sending any restricted/illegal item</p>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#10b981" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="info-text">
+          <h3>Multiple packages</h3>
+          <p>We only allow one box/package/parcel per order</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Promotion Banner -->
+    <div class="promo-banner">
+      <div class="promo-content">
+        <h4>Travel light!</h4>
+        <h2>Save up to 70% on<br>excess baggage fees</h2>
+        <div class="coupon">
+          <span class="badge">25% OFF</span>
+          <span class="code">Use code <strong>HEAVY25</strong></span>
+        </div>
+        <button class="book-now-btn">BOOK NOW</button>
+      </div>
+      <div class="ship-upto">
+        Ship Upto<br><strong>50 Kg</strong>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Right Side: Address Form -->
+  <div class="right-panel">
+    <div class="card">
+      <div class="card-header">
+        <button class="back-btn" (click)="goBack()">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        </button>
+        <h2>Home</h2>
+      </div>
+      
+      <div class="card-body">
+        
+        <!-- Pickup Address Section -->
+        <div class="address-section">
+          <h3>Pickup Address</h3>
+          
+          <button *ngIf="!pickupAddressAdded" class="add-address-btn" (click)="openPickupModal()">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/><line x1="12" y1="14" x2="12" y2="14"/></svg>
+            Add Pickup Address
+          </button>
+          
+          <div *ngIf="pickupAddressAdded" class="saved-address-card">
+            <div class="address-header">
+              <div class="user-info">
+                <div class="avatar"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <span class="name">{{ pickupDetails.name || 'HARIKRISHNAN P S' }}</span>
+                <span class="edit-icon" (click)="editPickupAddress()" style="cursor: pointer;"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#6b7280" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span>
+              </div>
+              <button class="remove-btn" (click)="deletePickupAddress()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></button>
+            </div>
+            <div class="address-text">
+              {{ pickupDetails.flat ? pickupDetails.flat + ', ' : '' }}{{ pickupDetails.area ? pickupDetails.area + ', ' : '' }}{{ pickupDetails.city ? pickupDetails.city + ', ' : '' }}{{ pickupDetails.state }} - {{ pickupDetails.pincode }}
+            </div>
+            <div class="address-footer">
+              <span class="tag"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> {{ pickupDetails.saveAs }}</span>
+              <span class="phone" *ngIf="pickupDetails.email"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><path d="M2 4l10 8 10-8"></path></svg> {{ pickupDetails.email }}</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Delivery Address Section -->
+        <div class="address-section">
+          <h3>Delivery Address</h3>
+          
+          <button *ngIf="!deliveryAddressAdded" class="add-address-btn" (click)="openDeliveryModal()">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/><line x1="12" y1="14" x2="12" y2="14"/></svg>
+            Add Delivery Address
+          </button>
+          
+          <div *ngIf="deliveryAddressAdded" class="saved-address-card">
+            <div class="address-header">
+              <div class="user-info">
+                <div class="avatar"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <span class="name">{{ deliveryDetails.contactName || 'HARIKRISHNAN P S' }}</span>
+                <span class="edit-icon" (click)="editDeliveryAddress()" style="cursor: pointer;"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#6b7280" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span>
+              </div>
+              <button class="remove-btn" (click)="deleteDeliveryAddress()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></button>
+            </div>
+            <div class="address-text">
+              {{ deliveryDetails.flat ? deliveryDetails.flat + ', ' : '' }}{{ deliveryDetails.area ? deliveryDetails.area + ', ' : '' }}{{ deliveryDetails.city ? deliveryDetails.city + ', ' : '' }}{{ deliveryDetails.state }} - {{ deliveryDetails.pincode }}
+            </div>
+            <div class="address-footer">
+              <span class="tag"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> {{ deliveryDetails.saveAs }}</span>
+              <span class="phone" *ngIf="deliveryDetails.mobileNumber"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {{ deliveryDetails.mobileNumber.startsWith('+') ? deliveryDetails.mobileNumber : '+91 ' + deliveryDetails.mobileNumber }}</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="card-footer" *ngIf="pickupAddressAdded || deliveryAddressAdded">
+        <button 
+          class="next-btn" 
+          [disabled]="!(pickupAddressAdded && deliveryAddressAdded)"
+          (click)="goToNextStep()"
+          [class.active]="pickupAddressAdded && deliveryAddressAdded">
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Profile Modal Overlay -->
+  <div class="modal-overlay" *ngIf="showProfileModal">
+    <div class="modal profile-modal">
+      <div class="modal-header border-bottom">
+        <h2>Create Profile</h2>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <input type="text" placeholder="Harikrishnan P S" [(ngModel)]="pickupDetails.name" class="form-control" />
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email (Optional)" [(ngModel)]="pickupDetails.email" class="form-control" />
+        </div>
+        <div class="consent-group">
+          <input type="checkbox" id="consent" checked />
+          <label for="consent">
+            By proceeding, I consent to the collection, processing, and use of my data by <span class="text-red">Delhivery</span> for purposes of transaction facilitation, service optimization, promotional offers, and value-added services. By continuing, I agree to the <a href="#">Conditions of Use</a> & <a href="#">Privacy Policy</a>. <a href="#" class="text-red">Manage</a>
+          </label>
+        </div>
+        <button class="btn-dark full-width mt-4" (click)="saveProfileAndContinue()">Save & Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Pickup Address Modal -->
+  <div class="modal-overlay" *ngIf="showPickupModal">
+    <div class="modal address-modal">
+      <div class="modal-body scrollable">
+        <div class="contact-warning text-center text-sm text-gray mb-4">
+          We'll use this email to coordinate pickup
+        </div>
+        
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" [(ngModel)]="pickupDetails.email" placeholder="e.g., yourname@email.com" class="form-control" />
+        </div>
+        
+        <h4 class="section-title">ADDRESS DETAILS</h4>
+        
+        <div class="form-group">
+          <label>Flat, Housing no., Building, Apartment</label>
+          <input type="text" [(ngModel)]="pickupDetails.flat" placeholder="e.g., Flat 4B, Signature Towers" class="form-control" />
+        </div>
+        
+        <div class="form-group">
+          <label>Area, street, sector</label>
+          <input type="text" [(ngModel)]="pickupDetails.area" placeholder="e.g., Sector 14, MG Road" class="form-control" />
+        </div>
+        
+        <div class="form-group">
+          <label>Pincode</label>
+          <input type="text" [(ngModel)]="pickupDetails.pincode" placeholder="e.g., 110001" class="form-control" />
+        </div>
+        
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" [(ngModel)]="pickupDetails.city" placeholder="e.g., New Delhi" class="form-control" />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label>State</label>
+              <input type="text" [(ngModel)]="pickupDetails.state" placeholder="e.g., Delhi" class="form-control" />
+            </div>
+          </div>
+        </div>
+        
+        <h4 class="section-title">SAVE AS</h4>
+        <div class="save-as-group">
+          <button class="save-as-btn" [class.active]="pickupDetails.saveAs === 'Home'" (click)="setSaveAs('pickup', 'Home')">Home</button>
+          <button class="save-as-btn" [class.active]="pickupDetails.saveAs === 'Office'" (click)="setSaveAs('pickup', 'Office')">Office</button>
+          <button class="save-as-btn" [class.active]="pickupDetails.saveAs === 'Other'" (click)="setSaveAs('pickup', 'Other')">Other</button>
+        </div>
+        
+        <button class="btn-dark full-width mt-4" (click)="savePickupAddress()">Add Pickup Address</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Delivery Address Modal -->
+  <div class="modal-overlay" *ngIf="showDeliveryModal">
+    <div class="modal address-modal">
+      <div class="modal-header flex-between">
+        <h2>Add Delivery Address</h2>
+        <button class="close-btn" (click)="closeDeliveryModal()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="modal-body scrollable">
+        <h4 class="section-title">DELIVERY CONTACT DETAILS</h4>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label>Contact Name</label>
+              <input type="text" [(ngModel)]="deliveryDetails.contactName" class="form-control" />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label>Mobile Number</label>
+              <input type="text" [(ngModel)]="deliveryDetails.mobileNumber" class="form-control" />
+              <div class="text-xs text-gray mt-1">We'll call this number to coordinate delivery</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" [(ngModel)]="deliveryDetails.email" placeholder="e.g., yourname@email.com" class="form-control" />
+        </div>
+        
+        <h4 class="section-title">ADDRESS DETAILS</h4>
+        
+        <div class="form-group">
+          <label>Flat, Housing no., Building, Apartment</label>
+          <input type="text" [(ngModel)]="deliveryDetails.flat" placeholder="e.g., Flat 4B, Signature Towers" class="form-control" />
+        </div>
+        
+        <div class="form-group">
+          <label>Area, street, sector</label>
+          <input type="text" [(ngModel)]="deliveryDetails.area" placeholder="e.g., Sector 14, MG Road" class="form-control" />
+        </div>
+        
+        <div class="form-group error-state">
+          <label>Pincode</label>
+          <div class="input-with-icon">
+            <input type="text" [(ngModel)]="deliveryDetails.pincode" placeholder="e.g., 110001" class="form-control border-red text-red" />
+            <svg class="error-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="text-red text-sm mt-1" *ngIf="deliveryDetails.pincode === '682315'">Sorry the pincode is temporarily unavailable</div>
+        </div>
+        
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" [(ngModel)]="deliveryDetails.city" placeholder="e.g., New Delhi" class="form-control" />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label>State</label>
+              <input type="text" [(ngModel)]="deliveryDetails.state" placeholder="e.g., Delhi" class="form-control" />
+            </div>
+          </div>
+        </div>
+        
+        <button class="btn-dark full-width mt-4" (click)="saveDeliveryAddress()">Add Delivery Address</button>
+      </div>
+    </div>
+  </div>
+
+</div>
