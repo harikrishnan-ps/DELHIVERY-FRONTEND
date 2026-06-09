@@ -1,0 +1,152 @@
+<div class="franchise-opportunities-page bg-gray-50 font-sans text-gray-800">
+  <!-- Hero Section -->
+  <section class="relative bg-gray-900 min-h-[500px] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/90 to-transparent z-10 w-full md:w-3/4"></div>
+      <img src="assets/images/franchise-hero.jpg" alt="Franchise Opportunities" class="absolute inset-0 w-full h-full object-cover z-0" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzMzMzMzIi8+PC9zdmc+'">
+    </div>
+    <div class="container mx-auto px-6 lg:px-12 relative z-20">
+      <div class="max-w-3xl text-white">
+        <div class="w-8 h-8 bg-delhivery-red mb-6"></div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" [innerHTML]="content.hero.title"></h1>
+        <div class="w-24 h-1 bg-gray-600 mb-6 border-b border-dashed border-gray-400"></div>
+        <p class="text-xl text-gray-200">{{ content.hero.subtitle }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer Banner -->
+  <div class="bg-gray-100 border-b border-gray-200 py-4 px-6 lg:px-12 text-sm italic text-gray-600 text-center shadow-inner">
+    <div class="container mx-auto">
+      <p>{{ content.hero.disclaimer }}</p>
+    </div>
+  </div>
+
+  <!-- Franchise Types -->
+  <section class="py-20">
+    <div class="container mx-auto px-6 lg:px-12">
+      <h2 class="text-3xl font-bold mb-16 text-center lg:text-left text-gray-800">
+        Choose your <span class="font-normal">Franchisee Type</span>
+      </h2>
+      
+      <div class="flex flex-col lg:flex-row gap-8 relative items-stretch justify-center">
+        <!-- OR Badge -->
+        <div class="hidden lg:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-16 h-16 bg-white rounded-full items-center justify-center font-bold text-xl text-gray-800 shadow-lg border border-gray-100">
+          OR
+        </div>
+
+        <div *ngFor="let type of content.franchiseTypes" class="bg-white rounded-2xl p-8 border border-gray-200 shadow-md flex-1 flex flex-col hover:shadow-xl transition-shadow relative overflow-hidden">
+          <div class="flex items-start mb-6">
+            <div class="bg-gray-100 p-3 rounded-lg mr-4 text-xl">🏪</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 leading-snug">{{ type.title }}</h3>
+              <p class="text-sm text-gray-600 mt-2">{{ type.description }}</p>
+            </div>
+          </div>
+          
+          <img [src]="type.image" [alt]="type.title" class="w-full h-48 object-cover rounded-xl mb-8" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWVlZWVlIi8+PC9zdmc+'">
+          
+          <div class="grid grid-cols-2 gap-6 mb-8 flex-grow">
+            <div>
+              <h4 class="font-bold text-gray-800 mb-4 flex items-center"><span class="text-blue-500 mr-2">💎</span> Benefits</h4>
+              <ul class="space-y-2 text-sm text-gray-600 list-disc list-inside">
+                <li *ngFor="let item of type.benefits">{{ item }}</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-800 mb-4 flex items-center"><span class="text-blue-500 mr-2">✓</span> Eligibility</h4>
+              <ul class="space-y-2 text-sm text-gray-600 list-disc list-inside">
+                <li *ngFor="let item of type.eligibility">{{ item }}</li>
+              </ul>
+            </div>
+          </div>
+          
+          <button class="w-full bg-gray-900 text-white font-bold py-4 rounded-lg hover:bg-black transition-colors flex justify-center items-center group">
+            <span class="mr-2">🏪</span> {{ type.ctaText }}
+            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Red Square Decor below boxes -->
+      <div class="w-12 h-12 bg-delhivery-red mt-12 mb-8"></div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="py-12 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-6 lg:px-12">
+      <h2 class="text-3xl font-bold mb-12 text-gray-800 border-b-4 border-delhivery-red inline-block pb-2">
+        Frequently asked <span class="font-normal">questions</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <!-- Left Col -->
+        <div class="bg-white rounded-xl shadow-sm p-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8">{{ content.faqs.leftCol.title }}</h3>
+          <div class="space-y-2">
+            <div *ngFor="let faq of content.faqs.leftCol.questions; let i = index" class="border-l-4 border-gray-900 bg-gray-50 mb-2">
+              <button class="w-full text-left px-4 py-3 font-bold text-gray-800 hover:text-delhivery-red transition-colors flex justify-between items-center text-sm" (click)="toggleFaqLeft(i)">
+                {{ faq.q }}
+                <svg class="w-4 h-4 transform transition-transform" [class.rotate-180]="openFaqLeft === i" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="px-4 pb-4 text-gray-600 text-sm mt-2" *ngIf="openFaqLeft === i" [innerHTML]="faq.a || 'Answer details will be provided during the application process.'"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Col -->
+        <div class="bg-white rounded-xl shadow-sm p-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8">{{ content.faqs.rightCol.title }}</h3>
+          <div class="space-y-2">
+            <div *ngFor="let faq of content.faqs.rightCol.questions; let i = index" class="border-l-4 border-delhivery-red bg-gray-50 mb-2">
+              <button class="w-full text-left px-4 py-3 font-bold text-gray-800 hover:text-delhivery-red transition-colors flex justify-between items-center text-sm" (click)="toggleFaqRight(i)">
+                {{ faq.q }}
+                <svg class="w-4 h-4 transform transition-transform" [class.rotate-180]="openFaqRight === i" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <div class="px-4 pb-4 text-gray-600 text-sm mt-2" *ngIf="openFaqRight === i" [innerHTML]="faq.a || 'Answer details will be provided during the application process.'"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-16 bg-gray-900 text-white text-center">
+    <div class="container mx-auto px-6">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8 max-w-3xl mx-auto leading-tight">
+        Join the Franchisee program and experience the benefit of a wider reach, growth opportunities, and more
+      </h2>
+      <button class="bg-white text-gray-900 font-bold py-3 px-8 rounded-sm hover:bg-gray-100 transition-colors inline-flex items-center">
+        Join us now
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Other Programs -->
+  <section class="py-20 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-6 lg:px-12">
+      <h2 class="text-3xl font-normal mb-12 text-gray-800">
+        Other ways you can <span class="font-bold border-b-4 border-delhivery-red pb-1">Join Delhivery</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+        <div *ngFor="let program of content.otherWays" class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div class="h-48 bg-gray-200 relative">
+             <div class="absolute top-10 -left-2 w-6 h-10 bg-delhivery-red z-10 rounded-r-md"></div>
+             <img [src]="program.image" [alt]="program.title" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWVlZWVlIi8+PC9zdmc+'">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-800">{{ program.title }}</h3>
+            <p class="text-sm text-gray-600 mb-6">{{ program.description }}</p>
+            <a [routerLink]="program.link" class="text-delhivery-red font-bold hover:underline inline-flex items-center">
+              Learn more
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
